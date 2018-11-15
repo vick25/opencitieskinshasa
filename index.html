@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset='utf-8' />
+        <title>Open Cities Kinshasa</title>
+        <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+        <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+        <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.50.0/mapbox-gl.css' rel='stylesheet' />
+
+        <script src="js/jquery.js" type="text/javascript"></script>
+        <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.50.0/mapbox-gl.js'></script>
+
+        <style>
+            body { margin:0; padding:0; }
+            #map { position: fixed; top: 0; bottom: 0; width:70%;}
+            .legend {
+                background-color: #fff;
+                border-radius: 3px;
+                bottom: 30px;
+                box-shadow: 0 1px 2px rgba(0,0,0,0.10);
+                font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
+                padding: 10px;
+                position: absolute;
+                right: 10px;
+                z-index: 1;
+            }
+
+            .legend h4 {
+                margin: 0 0 10px;
+            }
+
+            .legend div span {
+                border-radius: 50%;
+                display: inline-block;
+                height: 10px;
+                margin-right: 5px;
+                width: 10px;
+            }
+
+            .mapboxgl-popup-content {
+                padding: 0;
+                width: 280px;
+                font: 400 12px/22px 'Source Sans Pro', 'Helvetica Neue', Sans-serif;
+            }
+
+            .mapboxgl-popup-content-wrapper {
+                padding: 1%;
+            }
+
+            #features {
+                width: 30%;
+                margin-left: 70%;
+                font-family: sans-serif;
+                overflow-y: scroll;
+                background-color: #fafafa;
+            }
+            section {
+                padding: 25px 50px;
+                line-height: 25px;
+                border-bottom: 1px solid #ddd;
+                opacity: 0.25;
+                font-size: 13px;
+            }
+            section.active {
+                opacity: 1;
+            }
+            section:last-child {
+                border-bottom: none;
+                margin-bottom: 500px;
+            }
+            header {
+                padding: 25px 50px;
+            }
+            .img{
+                width:100%;
+                height: 200px;
+            }
+            #menu {
+                position: fixed;
+                background: #fff;
+                margin: 10px 5px;
+                padding: 10px;
+                font-family: 'Open Sans', sans-serif;
+            }
+
+            #mylayers {
+                position: fixed;
+                background: #fff;
+                margin: 50px 5px;
+                padding: 10px;
+                font-family: 'Open Sans', sans-serif;
+            }
+        </style>
+    </head>
+    <body style="background: lightblue;">
+        <div class="container-fluid">
+            <div id='map'></div>
+
+            <!-- Satellite images -->
+            <div id='menu'>
+                <input id='basic' type='radio' name='rtoggle' value='basic' checked='checked'>
+                <label for='basic'>Mapbox</label>
+                <input id='satellite' type='radio' name='rtoggle' value='satellite'>
+                <label for='satellite'>Satellite</label>
+                <input id='zmi' type='radio' name='rtoggle' value='zmi'>
+                <label for='zmi'>Kinshasa drone</label>
+            </div>
+
+            <div id='mylayers'></div>
+
+            <div id='features'>
+                <header>
+                    Project Open Cities Kinshasa
+                </header>
+                <section id='matete' class='active'>
+                    <h3>Commune de Matete</h3>
+                    <p>“Bi” (Swahili for ‘Lady’) Khole was one of Sultan Said’s daughters and with her wealth had an estate built as an out of town getaway. Local rumour has it that Khole planted one tree for each of her lovers. The Palace overlooked the ocean and is surrounded by fields of Mango trees.” </p>
+                    <img src="images/khole.jpg" alt="Bi Khole" class="img"/>
+                </section>
+                <section id='kisenso'>
+                    <h3>Commune de Kisenso</h3>
+                    <p>“Bi” (Swahili for ‘Lady’) Khole was one of Sultan Said’s daughters and with her wealth had an estate built as an out of town getaway. Local rumour has it that Khole planted one tree for each of her lovers. The Palace overlooked the ocean and is surrounded by fields of Mango trees.” </p>
+                    <img src="images/khole.jpg" alt="Bi Khole" class="img"/>
+                </section>
+                <section id='maziba'>
+                    <h3>Maziba</h3>
+                    <p>"The Christ Church (or Church of Christ) is an Anglican cathedral in Stone Town, Zanzibar, Tanzania. It belongs to the Anglican Church of Tanzania. It is a landmark historical church,[1] as well as one of the most prominent examples of early Christian architecture in East Africa. It was built in seven years, the foundation stone being laid on Christmas Day 1873 until the opening on Christmas 1879, based on a vision of Edward Steere, third Anglican bishop of Zanzibar, who actively contributed to the design. As most buildings in Stone Town, it is made mostly of coral stone. It has a unique concrete roof shaped in an unusual barrel vault (that was Steere's idea) and the overall structure mixes Perpendicular Gothic and Islamic details.[4] The cathedral was consecrated in 1903 and named after the Canterbury Cathedral.</p>
+                    <img src="images/anglican.jpg" alt="Anglican Cathedral" class="img"/>
+                </section>
+                <section id='bamnara'>
+                    <h3>Malemba</h3>
+                    <p>Malindi Mosque is a mosque in Stone Town, Zanzibar, located near the port.[1] It is one of the oldest mosques in Zanzibar, dated to the 15th century.[2] It was built by Sunni Muslims and it has some unusual architectural features, including a cone-shaped minaret (one of just three minarets of this shape in East Africa) and a square platform.</p>
+                    <img src="images/bamnara.jpg" alt="Bamnara mosque" class="img"/>
+                </section>
+                <section id='amba'>
+                    <h3>Amba</h3>
+                    <p>Chwaka Bay is an intertidal water body on the east coast of Unguja Island, Zanzibar, Tanzania. The area contains all three critical marine habitats namely mangroves, seagrasses and coral reefs; its mangrove being the largest single mangrove forest in Unguja Island. The ecological importance of Chwaka Bay cannot be overestimated.</p>
+                    <img src="images/chwaka.jpg" alt="Chwaka Bay" class="img"/>
+                </section>
+                <section id='bikanga'>
+                    <h3>Bikanga</h3>
+                    <p>This is a palace that was built for Mwinyi Mkuu (the Great Chief) Ahmed Bin Mohammed Hassan. He was the Swahili Ruler of Zanzibar in the 18th Century, before the Oman occupation. The main walls of the palace are still standing. The original royal splendor, pillars, stair cases, old passages and archways are all visible today.</p>
+                    <img src="images/dunga.jpg" alt="Dunga" class="img"/>
+                </section>
+                <section id='dingi'>
+                    <h3>Dingi-Dingi</h3>
+                    <p>CLOSED for renovation. A landmark building in Stone Town, Zanzibar. It is the largest and tallest building of Stone Town and occupies a prominent place facing the Forodhani Gardens on the old town's seafront, in Mizingani Road. It is located between the Old Fort and the Palace Museum (and former Sultan's Palace). It is one of six palaces built by Barghash bin Said, second Sultan of Zanzibar, and it is said to be located on the site of the 17th-century palace of Zanzibari queen Fatuma. The House of Wonders currently houses the Museum of History and Culture of Zanzibar and the Swahili Coast.</p>
+                    <img src="images/wonders.jpg" alt="House of Wonders" class="img"/>
+                </section>
+                <section id='prison'>
+                    <h3>Prison (Changuu) Island</h3>
+                    <p>Prison (Changuu) Island a small island 5.6 km north-west of Stone Town, Unguja, Zanzibar. The island saw use as a prison for rebellious slaves in 1860s and also functioned as a coral mine. The British First Minister of Zanzibar, Lloyd Mathews, purchased the island in 1893 and constructed a prison complex there. No prisoners were ever housed on the island and instead it became a quarantine station for yellow fever cases. More recently, the island has become a government-owned tourist resort and houses a collection of endangered Aldabra giant tortoises which were originally a gift from the British governor of the Seychelles.</p>
+                    <img src="images/island.jpg" alt="Prison (Changuu) Island" class="img"/>
+                </section>
+            </div>
+        </div>
+        <script src="js/opencities.js" type="text/javascript"></script>
+    </body>
+</html>
