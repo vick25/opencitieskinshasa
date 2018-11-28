@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset='utf-8' />
+        <title>Open Cities Kinshasa</title>
+        <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+        <link type="image/x-icon" rel="shortcut icon" href="imgs/gfdrr.ico" />
+
+        <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+        <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.51.0/mapbox-gl.css' rel='stylesheet' />
+        <link href="css/kinshasa.css" rel="stylesheet" type="text/css"/>
+    </head>
+    <body style="background: lightblue;">
+        <div style="height: 10px; background: #27aae1;"></div>
+        
+        <div class="container-fluid">
+            <div class="row">               
+          
+            <div id='map'></div>
+            <!-- Satellite imgs -->
+            <div id='menu'>
+                <input id='cjo4ezhkr654r2rqn6h0voiro' type='radio' name='rtoggle' value='basic' checked='checked'>
+                <label for='cjo4ezhkr654r2rqn6h0voiro'>Mapbox</label>
+                <input id='cjo5v77ye0xuj2rqlnzz5esnp' type='radio' name='rtoggle' value='satellite'>
+                <label for='cjo5v77ye0xuj2rqlnzz5esnp'>Satellite</label>
+                <!--                <input id='zmi' type='radio' name='rtoggle' value='zmi'>
+                                <label for='zmi'>Kinshasa drone</label>-->
+            </div>
+            <pre id='coordinates' class='coordinates'></pre>
+
+            <!--<div id='mylayers'></div>-->
+
+            <div id='features'>
+                <header>
+                    <h2>Project Open Cities Kinshasa</h2>
+                </header>
+                <section id='matete' class='active'>
+                    <h3>Commune de Matete</h3>
+                    <p>Matete est une commune du sud de la ville de Kinshasa en République démocratique du Congo. 
+                        Elle est l'un des nouveaux lieux de peuplement, entourée des communes de Lemba, Kisenso, 
+                        Limete et Ndjili. Elle est séparée de la commune de Ndjili par une rivière qui porte 
+                        également le nom de sa commune voisine (Ndjili).
+                        Elle est composée de trente six quartiers dont le plus grand est Maindombe qui 
+                        comporte deux plus grandes écoles publiques. Le quartier Mutoto est le siège 
+                        administratif de la municipalité.</p>
+                    <img src="imgs/matete.jpg" alt="Maison Communale de Matete" class="img"/>
+                    <!--                    <section>
+                                            <h5>Quartiers cartogrpahiés de Matete</h5>
+                                            <section id='maziba'>
+                                                <h3>Maziba</h3>
+                                                <p>"The Christ Church (or Church of Christ) is an Anglican cathedral in Stone Town, Zanzibar, Tanzania. It belongs to the Anglican Church of Tanzania. It is a landmark historical church,[1] as well as one of the most prominent examples of early Christian architecture in East Africa. It was built in seven years, the foundation stone being laid on Christmas Day 1873 until the opening on Christmas 1879, based on a vision of Edward Steere, third Anglican bishop of Zanzibar, who actively contributed to the design. As most buildings in Stone Town, it is made mostly of coral stone. It has a unique concrete roof shaped in an unusual barrel vault (that was Steere's idea) and the overall structure mixes Perpendicular Gothic and Islamic details.[4] The cathedral was consecrated in 1903 and named after the Canterbury Cathedral.</p>
+                                                <img src="imgs/anglican.jpg" alt="Anglican Cathedral" class="img"/>
+                                            </section>
+                                            <section id='malemba'>
+                                                <h3>Malemba</h3>
+                                                <p>Malindi Mosque is a mosque in Stone Town, Zanzibar, located near the port.[1] It is one of the oldest mosques in Zanzibar, dated to the 15th century.[2] It was built by Sunni Muslims and it has some unusual architectural features, including a cone-shaped minaret (one of just three minarets of this shape in East Africa) and a square platform.</p>
+                                                <img src="imgs/bamnara.jpg" alt="Bamnara mosque" class="img"/>
+                                            </section>
+                                        </section>-->
+                </section>
+                <section id='kisenso'>
+                    <h3>Commune de Kisenso</h3>
+                    <p>Kisenso ou Kinsenso est une commune du sud de la ville de Kinshasa en 
+                        République démocratique du Congo. Elle est l'un des nouveaux lieux de peuplement, 
+                        situé dans la zone des collines au sud de Lemba et Matete. 
+                        Elle est délimitée à l’ouest par la rivière Matete, à l’est par la rivière Ndjili 
+                        et au sud par la rivière Kwambila</p>
+                    <img src="imgs/kisenso_comm.jpg" alt="Maison Communale de Kisenso" class="img"/>
+                </section>
+                <section id='mai'>
+                    <h3>17 Mai</h3>
+                    <p>Chwaka Bay is an intertidal water body on the east coast of Unguja Island, Zanzibar, Tanzania. The area contains all three critical marine habitats namely mangroves, seagrasses and coral reefs; its mangrove being the largest single mangrove forest in Unguja Island. The ecological importance of Chwaka Bay cannot be overestimated.</p>
+                    <img src="imgs/17mai.jpg" alt="Bureau quartier 17 mai" class="img"/>
+                </section>
+                <section id='amba'>
+                    <h3>Amba</h3>
+                    <p>Chwaka Bay is an intertidal water body on the east coast of Unguja Island, Zanzibar, Tanzania. The area contains all three critical marine habitats namely mangroves, seagrasses and coral reefs; its mangrove being the largest single mangrove forest in Unguja Island. The ecological importance of Chwaka Bay cannot be overestimated.</p>
+                    <img src="imgs/amba.jpg" alt="Bureau quartier Amba" class="img"/>
+                </section>
+                <section id='bikanga'>
+                    <h3>Bikanga</h3>
+                    <p>This is a palace that was built for Mwinyi Mkuu (the Great Chief) Ahmed Bin Mohammed Hassan. He was the Swahili Ruler of Zanzibar in the 18th Century, before the Oman occupation. The main walls of the palace are still standing. The original royal splendor, pillars, stair cases, old passages and archways are all visible today.</p>
+                    <img src="imgs/bikanga.jpg" alt="Bureau quartier Bikanga" class="img"/>
+                </section>
+                <section id='dingi'>
+                    <h3>Dingi-Dingi</h3>
+                    <p>CLOSED for renovation. A landmark building in Stone Town, Zanzibar. It is the largest and tallest building of Stone Town and occupies a prominent place facing the Forodhani Gardens on the old town's seafront, in Mizingani Road. It is located between the Old Fort and the Palace Museum (and former Sultan's Palace). It is one of six palaces built by Barghash bin Said, second Sultan of Zanzibar, and it is said to be located on the site of the 17th-century palace of Zanzibari queen Fatuma. The House of Wonders currently houses the Museum of History and Culture of Zanzibar and the Swahili Coast.</p>
+                    <img src="imgs/dingi-dingi.jpg" alt="Bureau quartier Dingi-Dingi" class="img"/>
+                </section>
+                <section id='kabila'>
+                    <h3>Kabila</h3>
+                    <p>Prison (Changuu) Island a small island 5.6 km north-west of Stone Town, Unguja, Zanzibar. The island saw use as a prison for rebellious slaves in 1860s and also functioned as a coral mine. The British First Minister of Zanzibar, Lloyd Mathews, purchased the island in 1893 and constructed a prison complex there. No prisoners were ever housed on the island and instead it became a quarantine station for yellow fever cases. More recently, the island has become a government-owned tourist resort and houses a collection of endangered Aldabra giant tortoises which were originally a gift from the British governor of the Seychelles.</p>
+                    <img src="imgs/kabila.jpg" alt="Bureau quartier Kabila" class="img"/>
+                </section>
+                <section id='kisenso-gare'>
+                    <h3>Kisenso Gare</h3>
+                    <p>Prison (Changuu) Island a small island 5.6 km north-west of Stone Town, Unguja, Zanzibar. The island saw use as a prison for rebellious slaves in 1860s and also functioned as a coral mine. The British First Minister of Zanzibar, Lloyd Mathews, purchased the island in 1893 and constructed a prison complex there. No prisoners were ever housed on the island and instead it became a quarantine station for yellow fever cases. More recently, the island has become a government-owned tourist resort and houses a collection of endangered Aldabra giant tortoises which were originally a gift from the British governor of the Seychelles.</p>
+                    <img src="imgs/kisenso-gare.jpg" alt="Bureau quartier Kisenso Gare" class="img"/>
+                </section>
+                <section id='nsola'>
+                    <h3>Nsola</h3>
+                    <p>Prison (Changuu) Island a small island 5.6 km north-west of Stone Town, Unguja, Zanzibar. The island saw use as a prison for rebellious slaves in 1860s and also functioned as a coral mine. The British First Minister of Zanzibar, Lloyd Mathews, purchased the island in 1893 and constructed a prison complex there. No prisoners were ever housed on the island and instead it became a quarantine station for yellow fever cases. More recently, the island has become a government-owned tourist resort and houses a collection of endangered Aldabra giant tortoises which were originally a gift from the British governor of the Seychelles.</p>
+                    <img src="imgs/nsola.jpg" alt="Bureau quartier Nsola" class="img"/>
+                </section>
+                <section id='revolution'>
+                    <h3>Révolution</h3>
+                    <p>Prison (Changuu) Island a small island 5.6 km north-west of Stone Town, Unguja, Zanzibar. The island saw use as a prison for rebellious slaves in 1860s and also functioned as a coral mine. The British First Minister of Zanzibar, Lloyd Mathews, purchased the island in 1893 and constructed a prison complex there. No prisoners were ever housed on the island and instead it became a quarantine station for yellow fever cases. More recently, the island has become a government-owned tourist resort and houses a collection of endangered Aldabra giant tortoises which were originally a gift from the British governor of the Seychelles.</p>
+                    <img src="imgs/revolution.jpg" alt="Bureau quartier Revolution" class="img"/>
+                </section>
+                <section id='regideso'>
+                    <h3>Regideso</h3>
+                    <p>Prison (Changuu) Island a small island 5.6 km north-west of Stone Town, Unguja, Zanzibar. The island saw use as a prison for rebellious slaves in 1860s and also functioned as a coral mine. The British First Minister of Zanzibar, Lloyd Mathews, purchased the island in 1893 and constructed a prison complex there. No prisoners were ever housed on the island and instead it became a quarantine station for yellow fever cases. More recently, the island has become a government-owned tourist resort and houses a collection of endangered Aldabra giant tortoises which were originally a gift from the British governor of the Seychelles.</p>
+                    <img src="imgs/regideso.jpg" alt="Bureau quartier Regideso" class="img"/>
+                </section>
+            </div>
+
+<!--            <div>
+                 Footer 
+                <footer class="footer font-small blue fixed-bottom">
+
+                     Copyright 
+                    <div class="footer-copyright text-center py-3">© 2018 Copyright:
+                        <a href="https://osfac.net"> OSFAC</a>
+                    </div>
+                     Copyright 
+
+                </footer>
+            </div>-->
+            <!-- Footer -->
+            </div><!-- End row -->
+        </div><!-- End container -->
+
+        <script src="js/jquery.js" type="text/javascript"></script>
+        <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.51.0/mapbox-gl.js'></script>
+
+        <script src="js/opencities.js" type="text/javascript"></script>
+    </body>
+</html>
